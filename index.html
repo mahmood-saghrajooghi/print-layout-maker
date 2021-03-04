@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <title>صورت‌حساب</title>
+    <link rel="stylesheet" href="./bootstrap.rtl.css" />
+    <link rel="stylesheet" href="./font-fa.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+    <script src="./jquery-3.5.1.min.js"></script>
+    <style>
+        body {
+            color: #444;
+            font-family: "IRANSans_Fa", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 11px;
+            page-break-after: always;
+        }
+
+        .container-offical {
+            width: 1000px;
+            margin: auto;
+            position: relative;
+            /*font-family: 'Iranian Sans';*/
+            box-shadow: 0px 0px 2px #ccc;
+            border: 1px solid #333;
+            margin-top: 50px;
+            padding: 10px;
+            direction: rtl;
+        }
+
+        .bordered {
+            width: 100%;
+            padding: 4px;
+            border-radius: 0;
+            border: 1px solid #333;
+            font-size: 13px;
+        }
+
+        .bordered p {
+            font-weight: 500;
+        }
+
+        .bordered span {
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        input[type=number] {
+            text-align: center;
+        }
+
+        input[type=number]::-webkit-inner-spin-button,
+        input[type=number]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        .bg-light-grey {
+            background: #ddd;
+            border-radius: 0;
+        }
+
+        .bg-light-grey-td {
+            background: #ddd;
+            font-weight: 600;
+            border-color: #bbb !important;
+        }
+
+        @media print {
+            @page {
+                size: landscape;
+                margin: 0mm;
+            }
+
+            .container-offical {
+                box-shadow: none;
+                border: 1px solid transparent;
+                margin: 0px auto auto;
+                padding: 10px;
+                padding-top: 25px;
+            }
+
+            .no-print {
+                display: none;
+            }
+
+            .table tbody tr td {
+                font-size: 13px;
+            }
+
+            .table-1 tbody tr td span {
+                font-size: 13px;
+            }
+
+            .bg-light-grey,
+            .table .bg-light-grey {
+                background: #ddd !important;
+                border-radius: 0;
+            }
+
+            .table .bg-light-grey-td,
+            .bg-light-grey-td {
+                background: #ddd !important;
+                background-color: #ddd !important;
+                font-weight: 600;
+                border: 1px solid #333 !important;
+            }
+        }
+
+        .table thead tr th {
+            font-size: 10px;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .table tbody tr td {
+            height: 22px;
+            vertical-align: middle;
+        }
+
+        .table>thead>tr>td,
+        .table>tbody>tr>td,
+        .table>tfoot>tr>td {
+            padding: 5px;
+            font-size: 13px;
+        }
+
+        .table>thead>tr>td td,
+        .table>tbody>tr>td td,
+        .table>tfoot>tr>td td {
+            border: 0 !important;
+        }
+
+        .table>thead>tr>th,
+        .table>tbody>tr>th,
+        .table>tfoot>tr>th {
+            padding: 5px;
+            font-size: 11px;
+        }
+
+        .table-bordered>thead>tr>th,
+        .table-bordered>tbody>tr>th,
+        .table-bordered>tfoot>tr>th,
+        .table-bordered>thead>tr>td,
+        .table-bordered>tbody>tr>td,
+        .table-bordered>tfoot>tr>td {
+            border-color: #333 !important;
+        }
+
+        .table {
+            margin-bottom: 0px;
+        }
+
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        /* Firefox */
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+
+        table tbody tr td {
+            font-size: 13px;
+        }
+
+        table tbody tr td span {
+            font-size: 13px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container-offical" style="font-size:13px">
+        <div class="box">
+            <div data-role="header">
+                <i class="fa fa-print no-print" data-role="print" style="position: absolute;left: 10px;font-size: 30px;top: -17px;cursor: pointer;"></i>
+                <div style="overflow: hidden;display: flex;align-items:center;">
+                    <div
+                        style="position: absolute; left: 50%; transform: translateX(-50%);font-size: 16px;font-weight:600;">
+                        صورت‌حساب
+                    </div>
+                    <div style="float: left;width:35%;font-weight:bold;font-size:12px;margin-right: auto;">
+                        <ul
+                            style="list-style-type: none;direction:ltr;margin-bottom: 5px;border: 1px solid #333;padding-left: 0;">
+                            <li
+                                style="padding: 1px 10px;display: flex;justify-content: space-between;border-bottom: 1px solid #333;">
+                                <span dir="rtl" style="border-right: 1px solid #333;width: 50%;">۹۹۱۲-۰۶۷۴</span>
+                                <span style="width: 50%;text-align: center;"> شماره صورت‌حساب</span>
+                            </li>
+                            <li style="padding: 1px 10px;display: flex;justify-content: space-between;">
+                                <span dir="rtl" style="border-right: 1px solid #333;width: 50%;"> 1399/12/12</span>
+                                <span style="width: 50%;text-align: center;"> تاریخ صدور صورت‌حساب</span>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="bordered text-center bg-light-grey" style="font-size: 12px;border-bottom: 0;">
+                    مشخصات سازمان
+                </div>
+                <div class="bordered">
+                    <div style="overflow: hidden;display: flex;align-items: center;">
+                        <div style="float: right;width:65%">
+                            <div>نام شخص حقوقی :
+                                <span style="font-weight:600">
+                                    مرکز خدمات آزمایشگاهی دانشگاه صنعتی شریف
+                                </span>
+                            </div>
+                        </div>
+                        <div style="float: right;width:35%; display:flex;align-items:center">
+                            <span style="padding-left: 10px;">شماره ملی / شناسه ملی: </span>
+                            <div style="direction: ltr !important">
+                                14002830256 </div>
+
+                        </div>
+                    </div>
+                    <div style="overflow: hidden;display: flex;align-items: center;margin-top: 5px;">
+                        <div style="float: right;width: 65%;">
+                            <div>
+                                نشانی :تهران، خیابان آزادی، دانشگاه صنعتی شریف ، مجتمع خدمات فناوری ، مرکز خدمات
+                                آزمایشگاهی
+                            </div>
+                        </div>
+                        <div style="float: right;width:35%; display:flex;align-items:center; ">
+                            <span style="padding-left: 10px;">شماره اقتصادی: </span>
+                            <div style="direction: ltr !important ">
+                                411375661499 </div>
+                        </div>
+                    </div>
+                    <div style="overflow: hidden;display: flex;align-items: center;margin-top: 5px;">
+                        <div style="float: right;width:38%; display:flex;align-items:center">
+                            <span style="padding-left: 10px;margin-left: 4px">کد پستی ۱۰ رقمی: </span>
+                            <div style="direction: ltr !important ">
+                                1458889694 </div>
+                        </div>
+                        <div style="float: right;width: 12%">
+                            تلفن: 66166246
+                        </div>
+                        <div style="float: right;width:15%">
+                            دورنگار: 66072563
+                        </div>
+                        <div style="float: right;width:33%">
+                            <span style="padding-left: 10px;">ایمیل / وبسایت : clab@sharif.ir</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bordered text-center bg-light-grey" style="font-size: 12px;border-top: 0;border-bottom: 0;">
+                    مشخصات متقاضی
+                </div>
+                <div class="bordered">
+                    <div style="overflow: hidden;display: flex;align-items: center;">
+                        <div style="float: right;width:30%">
+                            <div>
+                                نام شخص &#x62D;&#x642;&#x6CC;&#x642;&#x6CC; : <span style="font-weight:600">
+                                    &#x627;&#x645;&#x6CC;&#x631;&#x62D;&#x633;&#x6CC;&#x646;
+                                    &#x622;&#x642;&#x627;&#x6CC;&#x6CC; </span>
+                            </div>
+                        </div>
+                        <div style="float: right;width:35%;direction:ltr">
+                            0021959821 <span style="padding-left: 10px;"> : شماره ملی / شناسه ملی</span>
+
+                        </div>
+                    </div>
+                    <div style="overflow: hidden;display: flex;align-items: center;margin-top: 5px;">
+
+                        <div style="float: right;width:100%">
+                            <div>نشانی :&#x62F;&#x627;&#x646;&#x634;&#x6AF;&#x627;&#x647;
+                                &#x635;&#x646;&#x639;&#x62A;&#x6CC; &#x634;&#x631;&#x6CC;&#x641; </div>
+                        </div>
+
+                    </div>
+                    <div style="overflow: hidden;display: flex;align-items: center;margin-top: 5px;">
+                        <div style="float: right;width:33%;display: flex;align-items: center">
+                            <span style="padding-left: 10px;margin-left: 4px;">کد پستی ۱۰ رقمی: </span>
+
+                            <div style="direction: ltr">
+                            </div>
+
+                        </div>
+
+                        <div style="float: right;width:16%">
+                            <span style="padding-left: 10px;"> تلفن : </span>
+                        </div>
+
+                        <div style="float: right;width:18%">
+                            <span style="padding-left: 10px;">
+                                شماره همراه :
+
+                                09217006720 </span>
+                        </div>
+
+
+
+                        <div style="float: right;width:25%">
+                            <span style="padding-left: 10px;">
+                                ایمیل :
+                                amirhossein.aghaii@yahoo.com </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bordered text-center bg-light-grey"
+                    style="font-weight: 600;font-size: 12px;border-top: 0;border-bottom: 0;">
+                    مشخصات درخواست
+                </div>
+                <div class="bordered">
+                    <div style="overflow: hidden;display: flex;align-items: center;margin-top: 5px;">
+                        <div style="float: right;width:33%">
+                            <span style="padding-left: 10px;"> شماره درخواست : </span><span
+                                style="display: inline-block;">9912-0674</span>
+                        </div>
+                        <div style="float: right;width:33%">
+                            <span style="padding-left: 10px;"> تاریخ درخواست :1399/12/12 </span>
+                        </div>
+                        <div style="float: right;width:33%">
+                            <span style="padding-left: 10px;"> نام هماهنگ کننده : &#x646;&#x6CC;&#x646;&#x627;
+                                &#x62D;&#x633;&#x646; &#x67E;&#x648;&#x631;</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bordered text-center bg-light-grey"
+                    style="font-weight: 600;font-size: 12px; border-top: 0; border-bottom: 0;">
+                    مشخصات خدمات آزمایشگاهی
+                </div>
+                <table class="table table-bordered">
+                    <thead>
+
+                        <tr>
+                            <th rowspan="2" style="border-bottom: 0;">ردیف</th>
+                            <th style="width:100px;border-bottom: 0;" rowspan="2">کد خدمات</th>
+                            <th style="width:200px;border-bottom: 0;" colspan="2">شرح خدمات آزمایشگاهی</th>
+                            <th rowspan="2" style="border-bottom: 0;">تعداد / مقدار</th>
+                            <th rowspan="2" style="border-bottom: 0;">واحد</th>
+                            <th rowspan="2" style="border-bottom: 0;">مبلغ واحد (ریال)</th>
+
+                            <th rowspan="2" style="border-bottom: 0;">تعداد تکرار</th>
+
+                            <th rowspan="2" style="border-bottom: 0;">مبلغ کل (ریال)</th>
+                            <th rowspan="2" style="border-bottom: 0;">مبلغ تخفیف</th>
+                            <th rowspan="2" style="border-bottom: 0;">مبلغ کل پس از تخفیف (ریال)</th>
+                        </tr>
+                        <tr>
+                            <th style="border-bottom: 0;">نام آزمون</th>
+                            <th style="border-bottom: 0;">نام پارامتر</th>
+                        </tr>
+                    </thead>
+                    <tbody style="text-align:center">
+                        <style>
+                            .table-in-td {
+                                padding: 0;
+                            }
+
+                            .ftd {
+                                font-size: 13px;
+                            }
+
+                            .table-in-td table {
+                                display: block;
+                                width: 100%;
+                                padding: 0 4px;
+                                border-bottom: 1px solid #333;
+                            }
+
+                            .table-in-td table:last-of-type {
+                                border: none;
+                            }
+                        </style>
+                        <tr class="ftd">
+                            <td class="ftd">1</td>
+                            <td class="ftd" style="letter-spacing: 1px;">7-1501-4001</td>
+                            <td class="ftd">&#x637;&#x6CC;&#x641; &#x646;&#x631;&#x645;&#x627;&#x644; XRD</td>
+
+                            <td class="table-in-td ftd">
+                                <table>
+                                    <tr>
+                                        <td class="ftd">&#x637;&#x6CC;&#x641; &#x646;&#x631;&#x645;&#x627;&#x644; XRD
+                                        </td>
+                                    </tr>
+                                </table>
+
+                            </td>
+                            <td class="ftd">
+                                <span style="height: 30px;
+                                vertical-align: middle;">2</span>
+
+
+                            </td>
+                            <td class="table-in-td ftd">
+
+                                <table>
+                                    <tr>
+                                        <td class="ftd">&#x646;&#x645;&#x648;&#x646;&#x647;</td>
+                                    </tr>
+                                </table>
+                            </td>
+
+                            <td class="table-in-td ">
+                                <table>
+                                    <tr>
+                                        <td class="ftd" comma-separate>1250000</td>
+                                    </tr>
+                                </table>
+
+                            </td>
+                            <td>
+                                1 </td>
+                            <td class="ftd" comma-separate>2500000</td>
+                            <td class="ftd" comma-separate>0</td>
+                            <td class="ftd" comma-separate>
+                                2500000
+                            </td>
+
+
+                        </tr>
+                        <tr>
+                            <td colspan="6" class="text-center">جمع کل</td>
+
+                            <td data-role="p-1" style="border-left-color: transparent !important;"></td>
+                            <td data-role="p-2"></td>
+                            <td comma-separate data-role="p-3">2500000</td>
+                            <td comma-separate data-role="p-4">0</td>
+                            <td comma-separate data-role="p-5">2500000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <table class="table-1 bordered" style="width: 100%">
+                <tbody data-role="body">
+                    <tr>
+
+                        <td style="border: 1px solid #333; padding: 4px; text-align: center;border-right:0 !important;"
+                            colspan="6">
+                            1 ) گرنت شبکه آزمایشگاهی فناوری های راهبردی :( 40 %)
+                        </td>
+                        <td style="border:none !important;border-left: 1px solid #333 !important;padding: 4px; text-align: center;width: 159px;"
+                            class="bg-light-grey-td" data-role="c" data-index="1">
+                            <span comma-separate>1000000</span> ریال
+                        </td>
+
+                        <td style="border: 1px solid #333; padding: 4px; text-align: center;border-top:0 !important;border-bottom:0 !important;font-size: 12px;width: 158px;"
+                            rowspan="5" data-role="c" data-index="2">
+                            مبلغ قابل پرداخت :
+                        </td>
+                        <td style="border: 0 !important; border-left: 1px solid #333 !important; padding: 4px 20px; text-align: center;width: 158px;"
+                            class="bg-light-grey-td" rowspan="5" data-role="c" data-index="3">
+                            <span comma-separate>1050000</span> ریال
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #333; padding: 4px; text-align: center;" colspan="6">
+                            2 ) گرنت شبکه آزمایشگاهی فناوری های راهبردی :( 30 %)
+                        </td>
+
+                        <td style="border:none !important;border-left: 1px solid #333 !important;padding: 4px; text-align: center;width: 159px;"
+                            class="bg-light-grey-td" data-role="c" data-index="1">
+                            <span comma-separate>450000</span> ریال
+                        </td>
+
+
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #333; padding: 4px; text-align: center;" colspan="6">
+                            2 ) گرنت شبکه آزمایشگاهی فناوری های راهبردی :( 30 %)
+                        </td>
+
+                        <td style="border:none !important;border-left: 1px solid #333 !important;padding: 4px; text-align: center;width: 159px;"
+                            class="bg-light-grey-td" data-role="c" data-index="1">
+                            <span comma-separate>450000</span> ریال
+                        </td>
+
+
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #333; padding: 4px; text-align: center;" colspan="6">
+                            2 ) گرنت شبکه آزمایشگاهی فناوری های راهبردی :( 30 %)
+                        </td>
+
+                        <td style="border:none !important;border-left: 1px solid #333 !important;padding: 4px; text-align: center;width: 159px;"
+                            class="bg-light-grey-td" data-role="c" data-index="1">
+                            <span comma-separate>450000</span> ریال
+                        </td>
+
+
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #333; padding: 4px; text-align: center;" colspan="6">
+                            2 ) گرنت شبکه آزمایشگاهی فناوری های راهبردی :( 30 %)
+                        </td>
+
+                        <td style="border:none !important;border-left: 1px solid #333 !important;padding: 4px; text-align: center;width: 159px;"
+                            class="bg-light-grey-td" data-role="c" data-index="1">
+                            <span comma-separate>450000</span> ریال
+                        </td>
+
+
+                    </tr>
+                    
+                    <tr>
+                        <td style="border: 1px solid #333; padding: 4px; text-align: center;" colspan="6">
+                            2 ) گرنت شبکه آزمایشگاهی فناوری های راهبردی :( 30 %)
+                        </td>
+
+                        <td style="border:none !important;border-left: 1px solid #333 !important;padding: 4px; text-align: center;width: 159px;"
+                            class="bg-light-grey-td" data-role="c" data-index="1">
+                            <span comma-separate>450000</span> ریال
+                        </td>
+
+
+                    </tr>
+                    
+                    <tr>
+                        <td style="border: 1px solid #333; padding: 4px; text-align: center;" colspan="6">
+                            2 ) گرنت شبکه آزمایشگاهی فناوری های راهبردی :( 30 %)
+                        </td>
+
+                        <td style="border:none !important;border-left: 1px solid #333 !important;padding: 4px; text-align: center;width: 159px;"
+                            class="bg-light-grey-td" data-role="c" data-index="1">
+                            <span comma-separate>450000</span> ریال
+                        </td>
+
+
+                    </tr>
+                    
+                    <tr>
+                        <td style="border: 1px solid #333; padding: 4px; text-align: center;" colspan="6">
+                            2 ) گرنت شبکه آزمایشگاهی فناوری های راهبردی :( 30 %)
+                        </td>
+
+                        <td style="border:none !important;border-left: 1px solid #333 !important;padding: 4px; text-align: center;width: 159px;"
+                            class="bg-light-grey-td" data-role="c" data-index="1">
+                            <span comma-separate>450000</span> ریال
+                        </td>
+
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div data-role="footer">
+            <div class="bordered" style="padding: 0px;border-top: 0;border-bottom: 0;border-left: 0">
+
+                <table style="width: 100%">
+                    <tbody>
+                        <tr>
+                            <td style="border-left: 1px solid #333; padding: 4px; text-align: center;"><span
+                                    style="padding-left: 10px;"> هزینه ارسال نمونه و فاکتور : <span
+                                        comma-separate>0</span></span></td>
+                            <td style="border-left: 1px solid #333; padding: 4px; text-align: center;"><span
+                                    style="padding-left: 10px;"> مجموع هزینه خدمات اعتباری : <span
+                                        comma-separate></span></span></td>
+                            <td style="padding: 4px; text-align: center; border: none !important;border-top: 1px solid #333 !important;border-left: 1px solid #333 !important;"
+                                class="bg-light-grey-td" data-role="d" data-index="0">1450000 ریال </span></td>
+                            <td style="border-left: 1px solid #333;border-top: 1px solid #333; padding: 4px; text-align: center"
+                                data-role="d" data-index="1"></td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="bordered" style="width:100%;font-size:15px">
+                <p style="font-size: 14px;margin-bottom: 5px;"> توضیحات :</p>
+                <span>میزان استفاده از گرنت : 58 <span>%</span></span>
+                <span>میزان مبلغ استفاده از گرنت : 1450000</span>
+                <br />
+                <div style="width: 100%;height: 5px;"></div>
+                <div style="display: flex;">
+                    <div class="bordered" style="flex: 1; height: 70px;">
+                        مهر و امضاء دانشگاه صنعتی شریف
+                    </div>
+                    <div class="bordered" style="flex: 1; margin: 0 .5%; height: 70px;">
+                        مهر و امضاء آزمایشگاه
+                    </div>
+                    <div class="bordered" style="flex: 1;height: 70px;">
+                        امضاء متقاضی خدمات
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script>
+        function commaSeparate(number) {
+            if (typeof (number) == "number") {
+                number = number.toString();
+            }
+            var reversedString = number.split('').reverse().map(function (v, i) {
+                var comma = (i !== 0 && i % 3 === 0) ? ',' : '';
+                return v + comma;
+            });
+            return reversedString.reverse().join('');
+        }
+        function stripComma(number) {
+            if (typeof (number) == "number") {
+                number = number.toString();
+            }
+            var stripped = number.split('').filter(function (v) {
+                return v !== ',';
+            });
+            return stripped.join('');
+        }
+
+        function calcWidth() {
+            let totalWidth = 0;
+            $('[data-role=c]').each((i, e) => {
+                let width = 0;
+                let parentWidth = $('[data-role=p-1]').parent().outerWidth();
+                if (i == 0) {
+                    width += $('[data-role=p-1]').outerWidth();
+                    width += $('[data-role=p-2]').outerWidth();
+                } else if (i == 1) {
+                    width += $('[data-role=p-3]').outerWidth();
+                    width += $('[data-role=p-4]').outerWidth();
+                } else if (i == 2) {
+                    width += $('[data-role=p-5]').outerWidth();
+                }
+                //width = (width / parentWidth) * 100;
+                totalWidth += width;
+                $(e).css('width', `${width}px`);
+            })
+            $('[data-role=d]').each((index, e) => {
+                let width = 0;
+                let parentWidth = $('[data-role=p-1]').parent().outerWidth();
+                let i = Number($(e).attr('data-index'));
+                if (i == 0) {
+                    width += $('[data-role=p-1]').outerWidth();
+                    width += $('[data-role=p-2]').outerWidth();
+                } else if (i == 1) {
+                    width += $('[data-role=p-3]').outerWidth();
+                    width += $('[data-role=p-4]').outerWidth();
+                    width += $('[data-role=p-5]').outerWidth();
+                }
+                //width = (width / parentWidth) * 100;
+                totalWidth += width;
+                $(e).css('width', `${width}px`);
+            })
+        }
+
+        function myPrintFunction() {
+
+            setTimeout(() => {
+                // width config
+                console.log('printing......')
+                calcWidth();
+            }, 500)
+            window.print();
+        }
+        $(() => {
+            $('[comma-separate]').each((i, e) => {
+                $(e).text(commaSeparate(stripComma($(e).text().trim())));
+            })
+
+
+            setTimeout(() => {
+
+                // width config
+                calcWidth();
+            }, 500)
+        })
+
+    </script>
+    <script src="./PrintLayoutMaker.js"></script>
+
+</body>
+
+</html>
