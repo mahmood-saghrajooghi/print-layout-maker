@@ -2,6 +2,7 @@ class Page {
   constructor(props) {
     this.layout = props.layout;
     this.screenDPI = 96;
+    this.rowSpanTD = props.rowSpanTD;
     this.calcHeight()
     this.preparePage()
     this.prepareBodyRows()
@@ -49,15 +50,81 @@ class Page {
     let rowIndex = 0;
     let bodyHeightLimit = this.pageHeightInPx - this.headerHeight - this.footerHeight;
     let totalHeight = 0;
+    let index = 0;
     for (let node of this.body.children) {
       totalHeight += node.offsetHeight;
+      if (this.rowSpanTD) {
+        this.checkForRowSpan(node);
+        this.updateRowSpanStatus();
+      }
       if (totalHeight > bodyHeightLimit) {
+        index = 0;
         totalHeight = node.offsetHeight;
         rowIndex++;
-        this.rows[rowIndex] = ''
+        this.rows[rowIndex] = '';
+        node = this.appendRowSpanNodes(node);
+      }
+      if (index === 0) {
+        node = this.checkFirstRowStyles(node);
       }
       this.rows[rowIndex] += node.outerHTML
+      index++;
     }
+
+  }
+  checkForRowSpan(node) {
+    let index = 0;
+    for (let subNode of node.children) {
+      index++;
+      if (subNode.attributes.rowSpan) {
+        if (this.rowSpanNodes) {
+          this.rowSpanNodes.push({
+            element: subNode,
+            index: index,
+            length: subNode.getAttribute('rowspan')
+          })
+        } else {
+          this.rowSpanNodes = [{
+            element: subNode,
+            index: index,
+            length: subNode.attributes.rowspan.value
+          }]
+        }
+      }
+    }
+  }
+  updateRowSpanStatus() {
+    if (this.rowSpanNodes) {
+      this.rowSpanNodes = this.rowSpanNodes.map(node => {
+        if (node.length == 1) {
+          return {}
+        }
+        node.element.setAttribute('rowspan', node.length - 1);
+        return { ...node, length: node.length - 1 }
+      })
+    }
+  }
+  appendRowSpanNodes(node) {
+    this.rowSpanNodes.forEach(subNode => {
+      node.insertBefore(subNode.element, node.children[subNode.index]);
+    })
+    return node;
+  }
+  checkFirstRowStyles(node) {
+    let index = 0;
+    if (!this.firstRowChildStyles) {
+      this.firstRowChildStyles = []
+      for (let childNode of node.children) {
+        this.firstRowChildStyles[index] = childNode.style.width;
+        index++;
+      }
+    } else {
+      for (let childNode of node.children) {
+        childNode.style.width = this.firstRowChildStyles[index];
+        index++;
+      }
+    }
+    return node;
   }
 
   render() {
@@ -88,7 +155,8 @@ class Page {
 
 document.querySelector('[data-role="print"]').addEventListener('click', function () {
   const page = new Page({
-    layout: 'landscape'
+    layout: 'landscape',
+    rowSpanTD: true
   });
-  page.print();
+  // page.print();
 })
